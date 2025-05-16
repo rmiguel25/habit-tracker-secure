@@ -4,7 +4,7 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/firestore';
 
-const firebaseConfig = {
+const config = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
   databaseURL: process.env.REACT_APP_DATABASE_URL,
@@ -15,17 +15,15 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-} else {
-  firebase.app();
+class Firebase {
+  constructor() {
+    firebase.initializeApp(config);
+
+    this.firebase = firebase;
+    this.auth = firebase.auth();
+    this.firestore = firebase.firestore();
+    this.db = firebase.database();
+  }
 }
 
-const app = {
-  firebase,
-  auth: firebase.auth(),
-  firestore: firebase.firestore(),
-  db: firebase.database(),
-};
-
-export default app;
+export default Firebase;

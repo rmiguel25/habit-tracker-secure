@@ -1,5 +1,5 @@
 import * as React from 'react';
-import firebase from 'api/firebase';
+import Firebase from 'api/firebase';
 
 // Context
 const FirebaseContext = React.createContext(null);
@@ -8,7 +8,7 @@ FirebaseContext.displayName = 'FirebaseContext';
 // Provider
 const FirebaseProvider = ({ children }) => {
   return (
-    <FirebaseContext.Provider value={firebase}>
+    <FirebaseContext.Provider value={new Firebase()}>
       {children}
     </FirebaseContext.Provider>
   );
@@ -26,3 +26,4 @@ function useFirebase() {
 }
 
 export { FirebaseProvider, useFirebase };
+
