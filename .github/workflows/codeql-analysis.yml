@@ -1,4 +1,3 @@
-# RaUl Miguel tarea 3
 name: "CodeQL Analysis"
 
 # Permisos necesarios para que el workflow pueda subir alertas a la pestaña Security
@@ -32,7 +31,7 @@ jobs:
           node -v
           npm -v
 
-      # Paso 3: Inicializa CodeQL y especifica el lenguaje JavaScript
+      # Paso 3: Inicializa CodeQL y especifica el lenguaje JavaScript.
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
